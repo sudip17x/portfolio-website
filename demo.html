@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sudip Ghosh - Data Analyst Portfolio</title>
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    /* Theme Colors */
+    :root {
+      --bg-color: #f9fafc;
+      --text-color: #2d3436;
+      --header-bg-start: #007bff;
+      --header-bg-end: #00c6ff;
+      --accent-color: #007bff;
+      --card-bg: #fff;
+      --nav-bg: rgba(0,0,0,0.85);
+      --nav-text: #fff;
+      --footer-bg: #222;
+      --footer-text: #fff;
+    }
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #eaeaea;
+      --header-bg-start: #002244;
+      --header-bg-end: #005f99;
+      --accent-color: #00c6ff;
+      --card-bg: #1c1c1c;
+      --nav-bg: rgba(28,28,28,0.95);
+      --nav-text: #f1f1f1;
+      --footer-bg: #181818;
+      --footer-text: #bfbfbf;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0; 
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg,var(--header-bg-start),var(--header-bg-end));
+      color: white;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-weight: 700;
+    }
+    header p {
+      margin: 8px 0;
+      font-size: 1.1rem;
+    }
+    header a {
+      color: #fff;
+      font-weight: 600;
+    }
+    #theme-toggle {
+      margin-top: 15px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      color: white;
+      transition: background 0.3s;
+    }
+    #theme-toggle:hover {
+      background: rgba(255,255,255,0.4);
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--nav-bg);
+      padding: 12px;
+      text-align: center;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    nav a {
+      color: var(--nav-text);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 4px;
+    }
+    nav a:hover {
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 1100px;
+      padding: 60px 20px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--accent-color);
+      border-left: 5px solid var(--accent-color);
+      padding-left: 10px;
+    }
+
+    /* SKILLS GRID */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 20px;
+    }
+    .skill-category {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .skill-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .skill-category h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+    }
+
+    /* PROJECTS & EXPERIENCE */
+    .project {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    /* LINKS */
+    a {
+      color: var(--accent-color);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #333;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+
+    /* BACK TO TOP */
+    #back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      transition: background 0.3s;
+      z-index: 999;
+    }
+    #back-to-top:hover {
+      background: #0056b3;
+    }
+
+    /* SOCIAL SIDEBAR */
+    .social-sidebar {
+      position: fixed;
+      top: 40%;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 10px;
+      z-index: 1000;
+    }
+    .social-sidebar a {
+      background: var(--accent-color);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border-radius: 0 6px 6px 0;
+      transition: 0.3s;
+      font-size: 1.2rem;
+    }
+    .social-sidebar a:hover {
+      background: #0056b3;
+      transform: translateX(5px);
+    }
+  </style>
+</head>
+<body>
+  <header>
+      <h1>Sudip Ghosh</h1>
+      <p>Web Developer | Data Analyst | Data Engineer Enthusiast</p>
+      <p>Bhadrakali, Paschim Medinipur, West Bengal | +91-7029713110 | sudip17x@gmail.com</p>
+      <p>
+        <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn</a> | 
+        <a href="https://github.com/sudip17x" target="_blank">GitHub</a> | 
+        <a href="mailto:sudip17x@gmail.com">Email</a>
+      </p>
+      <button id="theme-toggle">🌙 Dark Mode</button>
+  </header>
+
+  <nav>
+      <a href="#objective">Objective</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#languages">Languages</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Sections -->
+<section id="objective">
+  <h2>Career Objective</h2>
+
+  <div class="project">
+    <h3>Aspiring Data Analyst & Web Developer</h3>
+    <ul>
+      <li>B.Tech student specializing in Computer Science and Engineering</li>
+      <li>Keen interest in data analytics, web development, and data engineering</li>
+      <li>Experience with training and projects on visualization, analysis & web development</li>
+      <li>Proficient in Python, SQL, and data visualization tools</li>
+      <li>Strong academic record with passion for scalable data-driven solutions</li>
+    </ul>
+  </div>
+</section>
+
+  <section id="education">
+  <h2>Education</h2>
+
+  <div class="project">
+    <h3>Brainware University, Kolkata</h3>
+    <ul>
+      <li>B.Tech in CSE (AI & ML)</li>
+      <li>GPA: 8.28</li>
+      <li>2022 – Present</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <h3>Belda Gangadhar Academy</h3>
+    <ul>
+      <li>Higher Secondary</li>
+      <li>Percentage: 93.00%</li>
+      <li>2022</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <h3>Bhadrakali Gandhi Vidyapith</h3>
+    <ul>
+      <li>Secondary</li>
+      <li>Percentage: 86.14%</li>
+      <li>2020</li>
+    </ul>
+  </div>
+</section>
+
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3>Programming Languages</h3>
+        <ul><li>HTML<li>CSS<li>JavaScript</li><li>Python (NumPy, Pandas, Matplotlib, Seaborn)</li><li>SQL</li></ul>
+      </div>
+      <div class="skill-category">
+        <h3>Tools & Platforms</h3>
+        <ul><li>Power BI</li><li>MS Excel</li><li>MySQL</li><li>GitHub</li><li>Google Colab</li><li>Jupyter notebook</li><li>Prompt engineering</li></ul>
+      </div>
+      <div class="skill-category">
+        <h3>Data Visualization</h3>
+        <ul><li>Interactive dashboards</li><li>KPIs</li><li>Geo-mapping</li><li>EDA</li></ul>
+      </div>
+      <div class="skill-category">
+        <h3>Soft Skills</h3>
+        <ul><li>Problem-solving</li><li>Analytical thinking</li><li>Communication</li><LI>Leadership</LI><li>Data storytelling</li></ul>
+      </div>
+    </div>
+  </section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+
+  <div class="project">
+    <h3>Advance Diploma in IT – NBCC India, 2022–23</h3>
+    <button onclick="window.open('https://drive.google.com/drive/folders/1SsTkhDFUoE0sko89VniKta5yk1wUlvk9?usp=sharing', '_blank')">
+      View Certificate
+    </button>
+  </div>
+
+  <div class="project">
+    <h3>TATA GenAI Powered Data Analytics Job Simulation, July 2025</h3>
+    <button onclick="window.open('https://drive.google.com/drive/folders/1SsTkhDFUoE0sko89VniKta5yk1wUlvk9?usp=sharing', '_blank')">
+      View Certificate
+    </button>
+  </div>
+
+  <div class="project">
+    <h3>Data Analytics Job Simulation – Deloitte, July 2025</h3>
+    <button onclick="window.open('https://drive.google.com/drive/folders/1SsTkhDFUoE0sko89VniKta5yk1wUlvk9?usp=sharing', '_blank')">
+      View Certificate
+    </button>
+  </div>
+
+  <div class="project">
+    <h3>SQL Developer – Infosys Springboard, Sept 2024</h3>
+    <button onclick="window.open('https://drive.google.com/drive/folders/1SsTkhDFUoE0sko89VniKta5yk1wUlvk9?usp=sharing', '_blank')">
+      View Certificate
+    </button>
+  </div>
+</section>
+
+
+<section id="experience">
+  <h2> Internships & Work Experience</h2>
+
+  <div class="project">
+    <h3>Intel Industrial Training (SmartEd), April 2025</h3>
+    <ul>
+      <li>Focused on ML algorithms and real-world applications</li>
+      <li>Gained experience in visualization & data insights</li>
+    </ul>
+    <button onclick="window.open('https://drive.google.com/drive/folders/1_X3sMMCbiPBTg_yTYWk_xyxQHWXHOBLp?usp=drive_link', '_blank')">
+      View Certificate
+    </button>
+  </div>
+
+  <div class="project">
+    <h3>Data Analyst Intern (Innobyte Services), August 2025</h3>
+    <ul>
+      <li>Cleaned and transformed Amazon sales datasets for accurate analysis</li>
+      <li>Built dashboards to visualize sales trends and extract customer insights</li>
+    </ul>
+    </ul>
+    <button onclick="window.open('link here ', '_blank')">
+      View Certificate
+    </button>
+  </div>
+</section>
+
+
+  <section id="projects">
+    <h2>Academic Projects</h2>
+    <div class="project">
+      <h3>Amazon Sales Performance Dashboard</h3>
+      <p>Visualized sales metrics (KPIs, line graphs, geo-maps).</p>
+      <p><a href="https://github.com/sudip17x/Amazon_Sales_Analysis_using_python" target="_blank">GitHub Repo</a></p>
+    </div>
+    <div class="project">
+      <h3>Hiring Analysis Dashboard</h3>
+      <p>Analyzed recruitment data & built interactive dashboards.</p>
+      <p><a href="https://github.com/sudip17x/Hiring-Analysis" target="_blank">GitHub Repo</a></p>
+    </div>
+    <div class="project">
+      <h3>Credit Card Analysis Dashboard</h3>
+      <p>KPIs, funnel charts, and trend analysis for revenue insights.</p>
+      <p><a href="https://github.com/sudip17x/Credit-card-analysis" target="_blank">GitHub Repo</a></p>
+    </div>
+  </section>
+
+  <section id="leadership">
+    <h2>Leadership Experience</h2>
+    <p><strong>Career Counselor, 2022–25</strong></p>
+    <ul>
+      <li>Guided peers in academic & career planning</li>
+      <li>Collaborated with mentors to support student growth</li>
+    </ul>
+  </section>
+
+  <section id="languages">
+    <h2>Languages Known</h2>
+    <ul><li>English – Fluent</li><li>Bengali – Native</li><li>Hindi – Fluent</li></ul>
+  </section>
+
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <ul><li>Sci-fi Movie Lover</li><li>Passion for Travel</li><li>Stock Market Investor</li></ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: sudip17x@gmail.com | Phone: +91-7029713110</p>
+    <p>Address: Bhadrakali, Paschim Medinipur, West Bengal</p>
+    <p>Date of Birth: 17-Jan-2004 | Nationality: Indian | Gender: Male</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Sudip Ghosh. All rights reserved.</p>
+  </footer>
+
+  <!-- Social Sidebar -->
+  <div class="social-sidebar">
+    <a href="https://www.linkedin.com/in/your-linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/sudip17x" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="mailto:sudip17x@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <!-- Back to top -->
+  <button id="back-to-top">↑</button>
+
+  <script>
+    // Smooth scroll nav
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))
+          .scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    // Fade-in sections
+    const sections=document.querySelectorAll('section');
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.2});
+    sections.forEach(s=>obs.observe(s));
+
+    // Dark mode
+    const themeToggle=document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click',()=>{
+      document.body.classList.toggle('dark');
+      themeToggle.textContent=document.body.classList.contains('dark')?"☀️ Light Mode":"🌙 Dark Mode";
+    });
+
+    // Back to top
+    const backToTop=document.getElementById('back-to-top');
+    window.addEventListener('scroll',()=>{
+      if(window.scrollY>200) backToTop.style.display='block';
+      else backToTop.style.display='none';
+    });
+    backToTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'});});
+  </script>
+</body>
+</html>
