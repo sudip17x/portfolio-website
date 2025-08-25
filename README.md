@@ -29,9 +29,5 @@ A responsive **personal portfolio website** showcasing my skills, projects, cert
 
 * **Name:** Sudip Ghosh
 * **Email:** [sudip17x@gmail.com](mailto:sudip17x@gmail.com)
-* **LinkedIn:** [LinkedIn Profile](your-linkedin-link)
-* **GitHub:** [GitHub Profile](your-github-link)
 
----
 
-Would you like me to **make it with GitHub badges (tech stack icons, profile views, stars, etc.)** so it looks more professional and attractive on your repo?
