@@ -23,7 +23,7 @@ A responsive **personal portfolio website** showcasing my skills, projects, cert
 
 ## 🚀 Live Demo
 
-🔗 [View Portfolio Website](your-live-link-here)
+🔗 [View Portfolio Website](https://sudip17x.github.io/portfolio-website/)
 
 ## 📬 Contact
 
