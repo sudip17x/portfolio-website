@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Sudip Ghosh, a Data Analyst specializing in AI & Machine Learning, with expertise in Python, SQL, and Power BI." />
+    <meta name="keywords" content="Sudip Ghosh, Data Analyst, AI, Machine Learning, Power BI, SQL, Python, Portfolio" />
+    <meta name="author" content="Sudip Ghosh" />
+    <title>Sudip Ghosh - Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxSe0yPH9Lq4gB5z7h80vG2g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      :root {
+        --bg-color: #f4f4f4;
+        --text-color: #333;
+        --header-bg-start: #007bff;
+        --header-bg-end: #00c6ff;
+        --accent-color: #007bff;
+        --card-bg: white;
+        --nav-bg: #333;
+        --nav-text: white;
+        --footer-bg: #333;
+        --footer-text: white;
+        --input-bg: #fff;
+        --input-border: #ccc;
+        --button-bg: #007bff;
+        --button-text: white;
+        --font-scale: 1;
+      }
+      body.dark {
+        --bg-color: #121212;
+        --text-color: #f4f4f4;
+        --header-bg-start: #001f3f;
+        --header-bg-end: #003366;
+        --accent-color: #00c6ff;
+        --card-bg: #1e1e1e;
+        --nav-bg: #1e1e1e;
+        --nav-text: #f4f4f4;
+        --footer-bg: #1e1e1e;
+        --footer-text: #f4f4f4;
+        --input-bg: #2a2a2a;
+        --input-border: #555;
+        --button-bg: #00c6ff;
+      }
+      body.high-contrast {
+        --bg-color: #000;
+        --text-color: #fff;
+        --header-bg-start: #000;
+        --header-bg-end: #000;
+        --accent-color: #ffff00;
+        --card-bg: #222;
+        --nav-bg: #000;
+        --nav-text: #fff;
+        --footer-bg: #000;
+        --footer-text: #fff;
+        --input-bg: #333;
+        --input-border: #fff;
+        --button-bg: #ffff00;
+        --button-text: #000;
+      }
+      body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+        font-size: calc(16px * var(--font-scale));
+      }
+      header {
+        background: linear-gradient(135deg, var(--header-bg-start), var(--header-bg-end));
+        color: white;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+      header .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+      }
+      header p {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+      }
+      header a {
+        color: white;
+        text-decoration: none;
+        margin: 0 0.5rem;
+      }
+      header a:hover {
+        text-decoration: underline;
+      }
+      #theme-toggle {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5rem;
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        transition: transform 0.3s;
+      }
+      #theme-toggle:hover {
+        transform: scale(1.2);
+      }
+      nav {
+        background-color: var(--nav-bg);
+        padding: 1rem;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      nav a {
+        color: var(--nav-text);
+        text-decoration: none;
+        margin: 0 1rem;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: color 0.3s;
+      }
+      nav a:hover {
+        color: var(--accent-color);
+      }
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      section {
+        padding: 2.5rem 1.5rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      h2 {
+        color: var(--accent-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+      }
+      ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin: 0;
+      }
+      ul li {
+        margin-bottom: 0.5rem;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+      .skill-category {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, background 0.3s;
+      }
+      .skill-category:hover {
+        transform: translateY(-5px);
+      }
+      .project {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, background 0.3s;
+      }
+      .project:hover {
+        transform: translateY(-5px);
+      }
+      .project img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+      }
+      .project img.lazy {
+        filter: blur(5px);
+        transition: filter 0.5s;
+      }
+      .project img.loaded {
+        filter: blur(0);
+      }
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid var(--input-border);
+        border-radius: 4px;
+        background: var(--input-bg);
+        color: var(--text-color);
+        font-size: 1rem;
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+      #contact-form button {
+        background: var(--button-bg);
+        color: var(--button-text);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s;
+      }
+      #contact-form button:hover {
+        background: #0056b3;
+      }
+      .contact-info p {
+        margin: 0.5rem 0;
+      }
+      .contact-info i {
+        margin-right: 0.5rem;
+      }
+      #accessibility-panel {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        margin: 2.5rem auto;
+        max-width: 1200px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      #accessibility-panel h2 {
+        font-size: 1.5rem;
+        margin-top: 0;
+      }
+      .accessibility-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .accessibility-controls button {
+        background: var(--button-bg);
+        color: var(--button-text);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s;
+      }
+      .accessibility-controls button:hover {
+        background: #0056b3;
+      }
+      footer {
+        background-color: var(--footer-bg);
+        color: var(--footer-text);
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+      }
+      #back-to-top {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        background: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 0.75rem;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        z-index: 1000;
+        font-size: 1.2rem;
+        transition: background 0.3s, transform 0.3s;
+      }
+      #back-to-top:hover {
+        background: #0056b3;
+        transform: scale(1.1);
+      }
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2rem;
+        }
+        header p {
+          font-size: 1rem;
+        }
+        nav a {
+          margin: 0 0.5rem;
+          font-size: 0.9rem;
+        }
+        section, #accessibility-panel {
+          padding: 1.5rem 1rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
+        .accessibility-controls {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="header-content">
+          <h1>Sudip Ghosh</h1>
+          <p>Data Analyst | AI & ML Enthusiast</p>
+          <p>Bhadrakali, Narayangarh, Paschim Medinipur, West Bengal, 721437 | +91-7029713110 | <a href="mailto:sudip17x@gmail.com">sudip17x@gmail.com</a></p>
+          <p>
+            <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
+            <a href="https://your-portfolio-website.com" target="_blank" aria-label="Portfolio Website"><i class="fas fa-globe"></i> Portfolio</a>
+          </p>
+          <button id="theme-toggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        </div>
+      </header>
+
+      <nav>
+        <a href="#objective">Objective</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#languages">Languages</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <main>
+        <section id="objective">
+          <h2>Career Objective</h2>
+          <p>Seeking an entry-level data analyst position to contribute to a company’s success by extracting key insights from data using SQL and analytics tools, supporting strategic business decisions and operational efficiency.</p>
+        </section>
+
+        <section id="education">
+          <h2>Education</h2>
+          <ul>
+            <li>
+              <strong>Brainware University, Kolkata, West Bengal</strong>
+              <p>Bachelor of Technology in Computer Science & Engineering (Artificial Intelligence & Machine Learning), GPA: 8.28, August 2022 - Present</p>
+            </li>
+            <li>
+              <strong>Belda Gangadhar Academy (WBCHSE), Paschim Medinipur, West Bengal</strong>
+              <p>Higher Secondary, Percentage: 93.00, 2022</p>
+            </li>
+            <li>
+              <strong>Bhadrakali Gandhi Vidyapith (WBBSE), Paschim Medinipur, West Bengal</strong>
+              <p>Secondary, Percentage: 86.14, 2020</p>
+            </li>
+          </ul>
+        </section>
+
+        <section id="skills">
+          <h2>Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Programming Languages</h3>
+              <ul>
+                <li>Python (NumPy, Pandas, Matplotlib, Seaborn)</li>
+                <li>SQL</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Tools & Platforms</h3>
+              <ul>
+                <li>Power BI</li>
+                <li>MS Excel</li>
+                <li>MySQL</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Data Visualization</h3>
+              <ul>
+                <li>Interactive Dashboards</li>
+                <li>KPIs</li>
+                <li>Geo-mapping</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Soft Skills</h3>
+              <ul>
+                <li>Problem-solving</li>
+                <li>Analytical Thinking</li>
+                <li>Communication</li>
+                <li>Data Storytelling</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="certifications">
+          <h2>Certifications</h2>
+          <ul>
+            <li>Advance Diploma in Information Technology – NBCC India, 2022–23</li>
+            <li>TATA GenAI Powered Data Analytics Job Simulation – TATA Group, 13th July, 2025</li>
+            <li>Data Analytics Job Simulation – Deloitte, 21st July, 2025</li>
+            <li>SQL Developer – Infosys Springboard, 23rd Sept, 2024</li>
+          </ul>
+        </section>
+
+        <section id="experience">
+          <h2>Work Experience</h2>
+          <div class="project">
+            <h3>Intel Industrial Training (SmartEd), April 2025</h3>
+            <ul>
+              <li>Focused on Machine Learning algorithms and real-world applications</li>
+              <li>Gained experience in visualization and data-driven insights</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="projects">
+          <h2>Academic Projects</h2>
+          <div class="project">
+            <h3>Amazon Sales Performance Dashboard using Power BI</h3>
+            <img data-src="https://via.placeholder.com/300x200?text=Amazon+Sales+Dashboard" alt="Amazon Sales Dashboard" class="lazy">
+            <p>Visualized sales metrics across regions, time periods, and product categories. Designed KPIs, line graphs, and geo-maps to support data-driven decision-making.</p>
+            <p><a href="https://github.com/your-repo/amazon-sales" target="_blank">GitHub Repository</a></p>
+          </div>
+          <div class="project">
+            <h3>Hiring Analysis – Data-Driven Insights for Smarter Recruitment Decisions</h3>
+            <img data-src="https://via.placeholder.com/300x200?text=Hiring+Analysis+Dashboard" alt="Hiring Analysis Dashboard" class="lazy">
+            <p>Analyzed recruitment data to identify hiring trends and optimize decision-making. Built interactive dashboards to monitor hiring efficiency and candidate pipeline progress.</p>
+            <p><a href="https://github.com/your-repo/hiring-analysis" target="_blank">GitHub Repository</a></p>
+          </div>
+          <div class="project">
+            <h3>Credit Card Analysis Dashboard using Power BI</h3>
+            <img data-src="https://via.placeholder.com/300x200?text=Credit+Card+Analysis" alt="Credit Card Analysis Dashboard" class="lazy">
+            <p>Examined credit card transactions, customer acquisition costs, and delinquency patterns. Developed interactive dashboards with KPIs, funnel charts, and trend analysis for revenue and spending insights.</p>
+            <p><a href="https://github.com/your-repo/credit-card-analysis" target="_blank">GitHub Repository</a></p>
+          </div>
+        </section>
+
+        <section id="leadership">
+          <h2>Leadership Experience</h2>
+          <p><strong>Career Counselor, 2022–25</strong></p>
+          <ul>
+            <li>Guided peers in academic planning and career development</li>
+            <li>Collaborated with faculty members and academic mentors to align counseling efforts with students' academic performance</li>
+          </ul>
+        </section>
+
+        <section id="languages">
+          <h2>Languages Known</h2>
+          <ul>
+            <li>English – Fluent</li>
+            <li>Bengali – Native</li>
+            <li>Hindi – Fluent</li>
+          </ul>
+        </section>
+
+        <section id="hobbies">
+          <h2>Hobbies</h2>
+          <ul>
+            <li>Sci-fi Movie Lover</li>
+            <li>Passion for Travel</li>
+            <li>Stock Market Investor</li>
+          </ul>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+          </form>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:sudip17x@gmail.com">sudip17x@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> Phone: +91-7029713110</p>
+            <p><i class="fas fa-map-marker-alt"></i> Address: Bhadrakali, Narayangarh, Paschim Medinipur, West Bengal, 721437</p>
+            <p><i class="fas fa-calendar"></i> Date of Birth: 17-Jan-2004 | Nationality: Indian | Gender: Male</p>
+          </div>
+        </section>
+
+        <section id="accessibility-panel">
+          <h2>Accessibility Options</h2>
+          <div class="accessibility-controls">
+            <button id="increase-font">Increase Font Size</button>
+            <button id="decrease-font">Decrease Font Size</button>
+            <button id="high-contrast">Toggle High Contrast</button>
+            <button id="screen-reader">Toggle Screen Reader</button>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Sudip Ghosh. All rights reserved.</p>
+      </footer>
+    </div>
+    <button id="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
+    <script>
+      function setRootFontSize() {
+        const baseSize = 14;
+        const scaleFactor = Math.min(window.innerWidth / 393, 1.5);
+        document.documentElement.style.fontSize = `${baseSize * scaleFactor}px`;
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        setRootFontSize();
+        window.addEventListener('resize', setRootFontSize);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            target.scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+
+        // Fade-in animations for sections
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+          threshold: 0.1
+        };
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        sections.forEach(section => {
+          sectionObserver.observe(section);
+        });
+
+        // Night mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+          document.body.classList.toggle('dark');
+          themeToggle.innerHTML = document.body.classList.contains('dark') 
+            ? '<i class="fas fa-sun"></i>' 
+            : '<i class="fas fa-moon"></i>';
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            backToTop.style.display = 'block';
+          } else {
+            backToTop.style.display = 'none';
+          }
+        });
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Lazy loading images
+        const images = document.querySelectorAll('img.lazy');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.add('loaded');
+              img.classList.remove('lazy');
+              observer.unobserve(img);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // Contact form validation
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const message = document.getElementById('message').value.trim();
+
+          if (name && email && message) {
+            if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+              alert('Thank you for your message! It has been sent successfully.');
+              contactForm.reset();
+            } else {
+              alert('Please enter a valid email address.');
+            }
+          } else {
+            alert('Please fill out all fields.');
+          }
+        });
+
+        // Accessibility controls
+        let fontScale = 1;
+        const increaseFont = document.getElementById('increase-font');
+        const decreaseFont = document.getElementById('decrease-font');
+        const highContrast = document.getElementById('high-contrast');
+        const screenReader = document.getElementById('screen-reader');
+
+        increaseFont.addEventListener('click', () => {
+          fontScale = Math.min(fontScale + 0.2, 1.6);
+          document.documentElement.style.setProperty('--font-scale', fontScale);
+        });
+
+        decreaseFont.addEventListener('click', () => {
+          fontScale = Math.max(fontScale - 0.2, 0.8);
+          document.documentElement.style.setProperty('--font-scale', fontScale);
+        });
+
+        highContrast.addEventListener('click', () => {
+          document.body.classList.toggle('high-contrast');
+        });
+
+        screenReader.addEventListener('click', () => {
+          if ('speechSynthesis' in window) {
+            const isActive = screenReader.classList.toggle('active');
+            if (isActive) {
+              screenReader.textContent = 'Disable Screen Reader';
+              document.addEventListener('click', speakOnClick);
+            } else {
+              screenReader.textContent = 'Toggle Screen Reader';
+              document.removeEventListener('click', speakOnClick);
+              speechSynthesis.cancel();
+            }
+          } else {
+            alert('Screen reader is not supported in this browser.');
+          }
+        });
+
+        function speakOnClick(e) {
+          const text = e.target.textContent || e.target.innerText;
+          if (text && text.trim()) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            speechSynthesis.speak(utterance);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

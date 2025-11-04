@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sudip-portfolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sudip-portfolio
+  template:
+    metadata:
+      labels:
+        app: sudip-portfolio
+    spec:
+      containers:
+      - name: sudip-portfolio
+        image: sudip17x/sudip-portfolio:v1
+        ports:
+        - containerPort: 8080
