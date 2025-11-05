@@ -1,14 +1,16 @@
-name: CI/CD - Portfolio Website
+name: Dev CI - Portfolio Website
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ dev ]
 
 jobs:
-  build-and-push:
+  build-dev:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout repository
@@ -29,7 +31,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/portfolio-website:latest
+          tags: ghcr.io/${{ github.repository_owner }}/portfolio-website:dev
 
-      - name: Image digest
-        run: echo "Image built and pushed successfully"
+      - name: Verify success
+        run: echo "✅ Dev image pushed successfully to GHCR"
